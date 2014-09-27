@@ -837,6 +837,11 @@ body:not(.post-template) .post-title {
    5. Single Post - When you click on an individual post
    ========================================================================== */
 
+.post-head.main-header {
+    height: 40%;
+    min-height: 180px;
+}
+
 .post-template .post-header {
    margin-bottom: 3.4rem;
 }
@@ -927,9 +932,25 @@ body:not(.post-template) .post-title {
     color: #111;
 }
 
+/* Set up the previous / next links */
+.post-footer .navlink,
+.post-footer .navlink:active,
+.post-footer .navlink:visited {
+	color: #9EABB3;
+}
+
+.post-footer .left.navlink {
+	float: left;
+}
+
+.post-footer .right.navlink {
+	float: left;
+}
+
 /* Create some space to the right for the share links */
 .post-footer .author {
     margin-right: 180px;
+	clear: both;
 }
 
 .post-footer h4 a {
@@ -1473,7 +1494,8 @@ body:not(.post-template) .post-title {
     }
 
     .tag-head.main-header,
-    .author-head.main-header {
+    .author-head.main-header,
+	.post-head.main-header {
         height: 30%;
     }
 
@@ -1499,7 +1521,8 @@ body:not(.post-template) .post-title {
         height: 30%;
     }
 
-    .archive-template .main-header {
+    .archive-template .main-header,
+	.post-template .main-header {
         max-height: 20%;
         min-height: 160px;
         padding: 10% 0;
@@ -1718,9 +1741,14 @@ body:not(.post-template) .post-title {
     }
 
     .tag-head.main-header,
-    .author-head.main-header {
+    .author-head.main-header,
+	.post-head.main-header {
         height: 20%;
     }
+
+	.post-head.main-header {
+		margin-bottom: 2rem;
+	}
 
     .author-profile .author-image {
         margin-top: -70px;

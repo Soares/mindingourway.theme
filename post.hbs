@@ -3,10 +3,12 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-<nav class="main-nav clearfix">
-    <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-    <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
-</nav>
+<header class="main-header post-head" style="background-image: url({{asset "images/smallcover.jpg"}})">
+	<nav class="main-nav overlay clearfix">
+		<a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
+		<a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+	</nav>
+</header>
 
 <main class="content" role="main">
 
@@ -26,6 +28,13 @@
         </section>
 
         <footer class="post-footer">
+
+        <section class="navigation" style="display: none;">
+          <p>
+            <a href="here" class="left navlink">« Previous</a>
+            <a href="there" class="right navlink">Next »</a>
+          </p>
+        </section>
 
         {{! Everything inside the #author tags pulls data from the author }}
         {{#author}}
@@ -71,6 +80,25 @@
         </footer>
 
     {{/post}}
+
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'so8res';
+		var disqus_identifier = '{{post.id}}';
+		(function() {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] ||
+				document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the
+		<a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+	</noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by
+		<span class="logo-disqus">Disqus</span></a>
+
     </article>
 
 </main>
