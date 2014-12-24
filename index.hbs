@@ -1,6 +1,18 @@
 {{!< default}}
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
+{{#contentFor "meta"}}
+    <meta property="og:title" content="Home" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Minding our way" />
+    <meta property="og:site_name" content="{{meta_title}}"/>
+    <meta property="og:url" content="http://mindingourway.com"/>
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{meta_title}}"/>
+    <meta name="twitter:description" content="Minding our way"/>
+{{/contentFor}}
+
 {{! The big featured header }}
 <header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
     <nav class="main-nav overlay clearfix">
