@@ -955,6 +955,10 @@ body:not(.post-template) .post-title {
 }
 
 /* Set up the previous / next links */
+.post-footer .navigation {
+	overflow: auto;
+	margin-bottom: 1em;
+}
 .post-footer .navlink,
 .post-footer .navlink:active,
 .post-footer .navlink:visited {
@@ -966,7 +970,7 @@ body:not(.post-template) .post-title {
 }
 
 .post-footer .right.navlink {
-	float: left;
+	float: right;
 }
 
 /* Create some space to the right for the share links */

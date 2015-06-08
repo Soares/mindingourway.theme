@@ -6,7 +6,7 @@
 <header class="main-header post-head" style="background-image: url({{asset "images/smallcover.jpg"}})">
 	<nav class="main-nav overlay clearfix">
 		<a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-		<a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+		<a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">RSS</a>
 	</nav>
 </header>
 
@@ -40,19 +40,12 @@
 
         <footer class="post-footer">
 
-        <section class="navigation" style="display: none;">
-          <p>
-            <a href="here" class="left navlink">« Previous</a>
-            <a href="there" class="right navlink">Next »</a>
-          </p>
-        </section>
-
         {{! Everything inside the #author tags pulls data from the author }}
         {{#author}}
 
             {{#if image}}
             <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                <a class="img" href="/about/" style="background-image: url({{image}})" title="About the author"><span class="hidden">{{name}}'s Picture</span></a>
             </figure>
             {{/if}}
 
@@ -72,21 +65,34 @@
 
         {{/author}}
 
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
+		<section class="share">
+			<h4>Share this post</h4>
+			<a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+				onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+				<span class="hidden">Twitter</span>
+			</a>
+			<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+				onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+				<span class="hidden">Facebook</span>
+			</a>
+			<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+			   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+				<span class="hidden">Google+</span>
+			</a>
+		</section>
+
+        <section class="navigation">
+          <p>
+		  	{{#prev_post}}
+            <a href="{{url}}" class="left navlink">« {{title}}</a>
+			{{else}}
+            {{/prev_post}}
+		  	{{#next_post}}
+            <a href="{{url}}" class="right navlink">{{title}} »</a>
+			{{else}}
+            {{/next_post}}
+          </p>
+        </section>
 
         </footer>
 
