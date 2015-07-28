@@ -620,7 +620,7 @@ margin on the iframe, cause it breaks stuff. */
     color: #9EABB3;
     text-align: center;
     font-size: 12px;
-    text-transform: uppercase;
+    text-transform: none;
     line-height: 35px;
     white-space: nowrap;
     border-radius: 3px;
