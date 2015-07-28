@@ -6,7 +6,7 @@
 <header class="main-header post-head" style="background-image: url({{asset "images/smallcover.jpg"}})">
 	<nav class="main-nav overlay clearfix">
 		<a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-		<a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+		<a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">RSS</a>
 	</nav>
 </header>
 
@@ -40,19 +40,12 @@
 
         <footer class="post-footer">
 
-        <section class="navigation" style="display: none;">
-          <p>
-            <a href="here" class="left navlink">« Previous</a>
-            <a href="there" class="right navlink">Next »</a>
-          </p>
-        </section>
-
         {{! Everything inside the #author tags pulls data from the author }}
         {{#author}}
 
             {{#if image}}
             <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                <a class="img" href="/about/" style="background-image: url({{image}})" title="About the author"><span class="hidden">{{name}}'s Picture</span></a>
             </figure>
             {{/if}}
 
@@ -71,22 +64,54 @@
             </section>
 
         {{/author}}
+		<section class="newsletter-form-small" style="margin: -15px 0 0 -5px;">
+          {{!-- <h4>Get the latest posts by email</h4> --}}
+          <form action="//mindingourway.us11.list-manage.com/subscribe/post?u=b61a87ff1a0bb74378bceab60&amp;id=a0a0006de5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+            <div>
+              <input type="email" value="" placeholder="your email address" name="EMAIL" class="newsletter-email-input" id="mce-EMAIL">
+              <input type="submit" value="Subscribe to new posts by email" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button newsletter-button">
+            </div>
+            <div style="clear: both; padding-top: 16px;">
+              <div id="mce-error-response" style="display:none; color: rgb(87, 32, 25);"></div>
+              <div id="mce-success-response" style="display:none; color: rgb(41, 77, 41);"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;">
+              <input type="text" name="b_b61a87ff1a0bb74378bceab60_a0a0006de5" tabindex="-1" value="">
+            </div>
+          </form>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
 
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
+        </section>
+
+        <section class="share">
+			<h4>Share this post</h4>
+			<a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+				onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+				<span class="hidden">Twitter</span>
+			</a>
+			<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+				onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+				<span class="hidden">Facebook</span>
+			</a>
+			<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+			   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+				<span class="hidden">Google+</span>
+			</a>
+		</section>
+
+        <section class="navigation">
+          <p>
+		  	{{#prev_post}}
+            <a href="{{url}}" class="left navlink">« {{title}}</a>
+			{{else}}
+            {{/prev_post}}
+		  	{{#next_post}}
+            <a href="{{url}}" class="right navlink">{{title}} »</a>
+			{{else}}
+            {{/next_post}}
+          </p>
+        </section>
 
         </footer>
 
